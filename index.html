@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Honeymoon Adventure</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            background-color: #000;
+        }
+
+        canvas {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        #rotate-message h2 {
+            font-size: 1.5rem;
+            margin: 20px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        #rotate-message p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        @media (orientation: portrait) {
+
+            /* Mensaje para rotar a horizontal */
+            #rotate-message {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 100;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <script src="/public/sketch.js"></script>
+    <script src="/public/clases/BolaDeFuego.js"></script>
+    <script src="/public/clases/BolaPapel.js"></script>
+    <script src="/public/clases/Dialogo.js"></script>
+    <script src="/public/clases/Enemigo.js"></script>
+    <script src="/public/clases/Jugadora.js"></script>
+    <script src="/public/clases/MonstruoSlime.js"></script>
+    <script src="/public/clases/Nube.js"></script>
+    <script src="/public/clases/Plataforma.js"></script>
+    <script src="/public/clases/PoderCaramelo.js"></script>
+    <script src="/public/clases/Rollut.js"></script>
+    <script src="/public/clases/Vampiro.js"></script>
+    <script src="/public/clases/Zombie.js"></script>
+    <div id="rotate-message" style="display:none;">
+        <h2>Gira tu dispositivo a modo horizontal para jugar</h2>
+    </div>
+    <script>
+        // Mostrar mensaje en vertical
+        function checkOrientation() {
+            if (window.innerHeight > window.innerWidth) {
+                document.getElementById('rotate-message').style.display = 'flex';
+            } else {
+                document.getElementById('rotate-message').style.display = 'none';
+            }
+        }
+
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('load', checkOrientation);
+    </script>
+</body>
+
+</html>
